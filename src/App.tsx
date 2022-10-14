@@ -1,6 +1,5 @@
 import styles from './App.module.css'
 import Level from './components/Level'
-// import Level from './components/Level'
 import { levels } from './utils/imc'
 
 const App = () => {
