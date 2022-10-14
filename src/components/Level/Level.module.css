@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.625rem;
+  color: #fff;
+  padding: 10px;
+}
+
+.levelTitle {
+  margin-top: 0.4rem;
+}
+
+.levelIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.375rem;
+  height: 4.375rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.levelIcon img {
+  width: 1.9rem;
+}
+
+.levelInfo {
+  font-size: 0.75rem;
+}
+
+.container .gridInfo {
+  font-size: 0.75rem;
+}
+

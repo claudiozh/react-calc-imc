@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+}
+
+.container .sideLeft {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.container .sideLeft h1 {
+  font-size: 2.5rem;
+  color: #3a4b5c;
+  margin: 0;
+}
+
+.container .sideLeft p {
+  font-size: 16px;
+  color: #6a7d8b;
+  margin-bottom: 2.5rem;
+}
+
+.container .sideLeft input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid rgba(150, 163, 171, 0.5);
+  color: #6a7d8b;
+  padding: 10px 2px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  outline: 0;
+  caret-color: #227c9d;
+}
+
+.container .sideLeft input::placeholder {
+  opacity: 0.6;
+}
+
+.container .sideLeft button {
+  width: 100%;
+  background: #227c9d;
+  color: #ffffff;
+  font-size: 16px;
+  margin-top: 2rem;
+  padding: 15px 20px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 0;
+  transition: all ease 0.3s;
+}
+
+.container .sideLeft button:hover {
+  opacity: 0.8;
+}
+
+.container .sideRight {
+  flex: 1;
+  margin-left: 40px;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Responsive */
+@media (max-width: 56.25rem) {
+  .container {
+    grid-template-columns: 1fr;
+    row-gap: 2.5rem;
+    padding: 0 1.25rem 1.25rem 1.25rem;
+  }
+}
