@@ -19,6 +19,12 @@ const App = () => {
     }
   }
 
+  const onKeyEnter = (e: any) => {
+    if (e.key === 'Enter') {
+      handleCalculateImc()
+    }
+  }
+
   const handleBackButton = () => {
     setResultImc(null)
     setHeight(0)
@@ -39,6 +45,7 @@ const App = () => {
           value={height > 0 ? height : ''}
           onChange={(e) => setHeight(parseFloat(e.target.value))}
           disabled={!!resultImc}
+          onKeyDown={onKeyEnter}
         />
         <input
           type="number"
@@ -46,6 +53,7 @@ const App = () => {
           value={weight > 0 ? weight : ''}
           onChange={(e) => setWeight(parseFloat(e.target.value))}
           disabled={!!resultImc}
+          onKeyDown={onKeyEnter}
         />
         <button onClick={handleCalculateImc} disabled={!!resultImc}>
           Calcular
