@@ -35,18 +35,18 @@ export const levels: ILevel[] = [
 
 export const calculateImc = (height: number, weight: number) => {
   const imc = parseFloat((weight / (height * height)).toFixed(2))
+  let resultLevel: ILevel | null = null
 
-  const resultLevel = levels.find((item) => {
+  for (const item of levels) {
     const [referenceStart, referenceEnd] = item.numbersReference
 
     if (imc >= referenceStart && imc <= referenceEnd) {
-      const itemResult = { ...item }
-      itemResult.resultImc = imc
-      return itemResult
+      const newItem = { ...item }
+      newItem.resultImc = imc
+      resultLevel = newItem
+      break
     }
-
-    return false
-  })
+  }
 
   return resultLevel || null
 }

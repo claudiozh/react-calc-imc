@@ -9,7 +9,7 @@
 }
 
 .levelTitle {
-  margin-top: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .levelIcon {
@@ -28,7 +28,6 @@
 
 .levelInfo {
   font-size: 0.75rem;
-  margin-bottom: 15px;
 }
 
 .resultImc {

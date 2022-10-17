@@ -6,7 +6,7 @@ import App from './App'
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <SnackbarProvider
-      maxSnack={3}
+      maxSnack={1}
       anchorOrigin={{
         vertical: 'top',
         horizontal: 'center',
