@@ -1,8 +1,30 @@
+import { useState } from 'react'
+import { levels, calculateImc, ILevel } from './utils/imc'
+import { useSnackbar } from 'notistack'
 import styles from './App.module.css'
 import Level from './components/Level'
-import { levels } from './utils/imc'
+import leftArrow from './assets/leftarrow.png'
 
 const App = () => {
+  const { enqueueSnackbar } = useSnackbar()
+  const [resultImc, setResultImc] = useState<ILevel | null>(null)
+  const [height, setHeight] = useState(0)
+  const [weight, setWeight] = useState(0)
+
+  const handleCalculateImc = () => {
+    if (!height || !weight) {
+      enqueueSnackbar('Preencha todos os campos.', {})
+    } else {
+      setResultImc(calculateImc(height, weight))
+    }
+  }
+
+  const handleBackButton = () => {
+    setResultImc(null)
+    setHeight(0)
+    setWeight(0)
+  }
+
   return (
     <main className={styles.container}>
       <section className={styles.sideLeft}>
@@ -15,23 +37,34 @@ const App = () => {
         <input
           type="number"
           placeholder="Digite a sua altura. Ex.: 1.6 (em metros)"
-          onChange={() => console.log('Change')}
+          value={height > 0 ? height : ''}
+          onChange={(e) => setHeight(parseFloat(e.target.value))}
         />
 
         <input
           type="number"
           placeholder="Digite seu peso. Ex.: 80.5 (em kg)"
-          onChange={() => console.log('Change')}
+          value={weight > 0 ? weight : ''}
+          onChange={(e) => setWeight(parseFloat(e.target.value))}
         />
 
-        <button>Calcular</button>
+        <button onClick={handleCalculateImc}>Calcular</button>
       </section>
 
-      <section className={styles.sideRight}>
-        {levels.map((item, key) => (
-          <Level key={key} data={item} />
-        ))}
-      </section>
+      {resultImc ? (
+        <section className={styles.sideRightResult}>
+          <div className={styles.arrow} onClick={handleBackButton}>
+            <img alt="" src={leftArrow} />
+          </div>
+          <Level key={resultImc.title} data={resultImc} />
+        </section>
+      ) : (
+        <section className={styles.sideRight}>
+          {levels.map((item, key) => (
+            <Level key={key} data={item} />
+          ))}
+        </section>
+      )}
     </main>
   )
 }

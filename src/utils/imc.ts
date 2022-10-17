@@ -3,7 +3,7 @@ export type ILevel = {
   color: string
   numbersReference: number[]
   icon: 'up' | 'down'
-  yourImc?: number
+  resultImc?: number
 }
 
 export const levels: ILevel[] = [
@@ -33,6 +33,20 @@ export const levels: ILevel[] = [
   },
 ]
 
-export const calculateImc = (height: number, peso: number): number => {
-  return 0
+export const calculateImc = (height: number, weight: number) => {
+  const imc = parseFloat((weight / (height * height)).toFixed(2))
+
+  const resultLevel = levels.find((item) => {
+    const [referenceStart, referenceEnd] = item.numbersReference
+
+    if (imc >= referenceStart && imc <= referenceEnd) {
+      const itemResult = { ...item }
+      itemResult.resultImc = imc
+      return itemResult
+    }
+
+    return false
+  })
+
+  return resultLevel || null
 }

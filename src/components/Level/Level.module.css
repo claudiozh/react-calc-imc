@@ -28,5 +28,10 @@
 
 .levelInfo {
   font-size: 0.75rem;
+  margin-bottom: 15px;
 }
 
+.resultImc {
+  font-size: 17px;
+  margin: 10px 0 40px 0;
+}

@@ -19,6 +19,12 @@ const Level = ({ data }: Props) => {
 
       <h1 className={styles.levelTitle}>{data.title}</h1>
 
+      {data.resultImc && (
+        <div className={styles.resultImc}>
+          Seu IMC é de {data.resultImc} kg/m²
+        </div>
+      )}
+
       <div className={styles.levelInfo}>
         IMC está entre {data.numbersReference[0]} e {data.numbersReference[1]}
       </div>
