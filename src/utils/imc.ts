@@ -34,7 +34,7 @@ export const levels: ILevel[] = [
 ]
 
 export const calculateImc = (height: number, weight: number) => {
-  const imc = parseFloat((weight / (height * height)).toFixed(2))
+  const imc = Math.round((weight / (height * height)) * 10) / 10
   let resultLevel: ILevel | null = null
 
   for (const item of levels) {
