@@ -9,7 +9,7 @@ Projeto para medir o índice de massa corporal (IMC) do usuário.
 
 ### Demo
 
-🔗 <a href="https://www.marioelvio.com/portfolio/10" target="_blank">www.marioelvio.com/portfolio/10</a>
+🔗 <a href="https://react-calc-imc-hazel.vercel.app" target="_blank">https://react-calc-imc-hazel.vercel.app</a>
 
 ### 🛠 Tecnologias
 
